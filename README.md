@@ -68,11 +68,12 @@ Some examples of correct Basic English:
 
 Some examples of incorrect Basic English:
 
-
-Live Demo: https://piscine-sprint-three-project.netlify.app/
-
 - `hello world`
 - `they create some dinner`
 - `she give gift, then go out`
 - `he like egg-nog`
 - `go to birmingham`
+
+
+
+Live Demo: https://piscine-sprint-three-project.netlify.app/
