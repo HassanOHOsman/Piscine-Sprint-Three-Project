@@ -14,4 +14,10 @@ window.onload = function() {
     textInput.placeholder = "Enter or paste a text here";
     document.body.append(textInput);
 
+    //Create a spell check trigger to check on written text
+    const spellCheckBtn = document.createElement("button");
+    spellCheckBtn.id = "spell-check-btn";
+    spellCheckBtn.textContent = "Check";
+    spellCheckBtn.type = "button";
+    document.body.append(spellCheckBtn);
 }
