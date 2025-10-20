@@ -24,12 +24,28 @@ window.onload = function() {
     spellCheckBtn.type = "button";
     document.body.append(spellCheckBtn);
 
+    //Create a palceholder to display a message with all misspelled words
+    const errorMessage = document.createElement("p");
 
     //Create event listener to check the presence of every word typed by end-user in the list after clicking the trigger button
     spellCheckBtn.addEventListener("click", () => {
         const typedSentence = textInput.value; 
         const arrayOfWords = typedSentence.split(" ");
         const misspelledWords = wordsChecker(arrayOfWords);
+
+        console.log(misspelledWords)
+
+
+        errorMessage.textContent = "";
+        if (misspelledWords.length === 1) {
+            errorMessage.textContent = `Warning: The following ${misspelledWords.length} word is potentially misspelled: ${misspelledWords.toString()}`;
+        } else {
+            errorMessage.textContent = misspelledWords.join(", ");
+        }
+        document.body.append(errorMessage);
+        
     });
+
+
      
 }
