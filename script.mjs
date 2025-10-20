@@ -6,6 +6,9 @@
 
 // import getDictionarySize from "./common.mjs";
 
+import { wordsChecker } from "./common.mjs";
+import words from "./words.json" with { type: "json" };
+
 window.onload = function() {
     // document.querySelector("body").innerText = `There are ${getDictionarySize()} words in the Basic English dictionary`;
     //Create text input for the spell checker
@@ -20,4 +23,14 @@ window.onload = function() {
     spellCheckBtn.textContent = "Check";
     spellCheckBtn.type = "button";
     document.body.append(spellCheckBtn);
+
+
+    //Create event listener to check the presence of every word typed by end-user in the list after clicking the trigger button
+    spellCheckBtn.addEventListener("click", () => {
+        const typedSentence = textInput.value; 
+        const arrayOfWords = typedSentence.split(" ");
+        const misspelledWords = wordsChecker(arrayOfWords);
+
+    });
+     
 }
