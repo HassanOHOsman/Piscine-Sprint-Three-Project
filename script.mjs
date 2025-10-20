@@ -30,9 +30,10 @@ window.onload = function() {
     //Style the message the show up when words are misspelled
     errorMessage.style.color = "#b71c1c";
     errorMessage.style.backgroundColor= "#ffebee";
+    errorMessage.style.fontWeight = "bold";
     errorMessage.style.marginTop = "50px";
     errorMessage.style.padding = "10px";
-    errorMessage.style.border = " 1px solid #ff0000"
+    errorMessage.style.border = " 1px solid #ff0000";
     errorMessage.style.borderRadius = "5px";
     errorMessage.style.width = "fit-content";
 
