@@ -32,6 +32,7 @@ window.onload = function() {
     errorMessage.style.backgroundColor= "#ffebee";
     errorMessage.style.marginTop = "50px";
     errorMessage.style.padding = "10px";
+    errorMessage.style.border = " 1px solid #ff0000"
     errorMessage.style.borderRadius = "5px";
     errorMessage.style.width = "fit-content";
 
