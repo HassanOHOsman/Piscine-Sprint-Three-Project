@@ -26,6 +26,8 @@ window.onload = function() {
 
     //Create a palceholder to display a message with all misspelled words
     const errorMessage = document.createElement("p");
+    document.body.append(errorMessage);
+    errorMessage.style.display = "none";
 
     //Style the message the show up when words are misspelled
     errorMessage.style.color = "#b71c1c";
@@ -54,7 +56,7 @@ window.onload = function() {
         } else {
             errorMessage.textContent = "";
         }
-        document.body.append(errorMessage);
+        
         
     });
 
