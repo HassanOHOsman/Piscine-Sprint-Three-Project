@@ -30,6 +30,7 @@ window.onload = function() {
     //Style the message the show up when words are misspelled
     errorMessage.style.color = "#b71c1c";
     errorMessage.style.backgroundColor= "#ffebee";
+    errorMessage.style.marginTop = "50px";
 
     //Create event listener to check the presence of every word typed by end-user in the list after clicking the trigger button
     spellCheckBtn.addEventListener("click", () => {
