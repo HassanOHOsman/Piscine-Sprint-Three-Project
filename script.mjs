@@ -48,13 +48,16 @@ window.onload = function() {
         //Create logic to create previous misspelling warnings, and display a new message based on the number of misspelled words
         errorMessage.textContent = "";
         if (misspelledWords.length === 1) {
+            errorMessage.style.display = "block";
             errorMessage.textContent = `⚠️ Warning: The following ${misspelledWords.length} word is potentially misspelled: ${misspelledWords.toString()}`;
         } else if (misspelledWords.length > 1) {
+            errorMessage.style.display = "block";
             const lastWord = misspelledWords.pop();
             const allWordsButLast = misspelledWords.join(", ")
             errorMessage.textContent = `⚠️ Warning: The following ${misspelledWords.length + 1} words are potentially misspelled: ${allWordsButLast} and ${lastWord}`
         } else {
             errorMessage.textContent = "";
+            errorMessage.style.display = "none";
         }
         
         
