@@ -24,6 +24,8 @@ window.onload = function() {
     spellCheckBtn.type = "button";
     document.body.append(spellCheckBtn);
 
+    //Create a palceholder to display a message with all misspelled words
+    const errorMessage = document.createElement("p");
 
     //Create event listener to check the presence of every word typed by end-user in the list after clicking the trigger button
     spellCheckBtn.addEventListener("click", () => {
@@ -31,6 +33,21 @@ window.onload = function() {
         const arrayOfWords = typedSentence.split(" ");
         const misspelledWords = wordsChecker(arrayOfWords);
 
+        //Create logic to create previous misspelling warnings, and display a new message based on the number of misspelled words
+        errorMessage.textContent = "";
+        if (misspelledWords.length === 1) {
+            errorMessage.textContent = `Warning: The following ${misspelledWords.length} word is potentially misspelled: ${misspelledWords.toString()}`;
+        } else if (misspelledWords.length > 1) {
+            const lastWord = misspelledWords.pop();
+            const allWordsButLast = misspelledWords.join(", ")
+            errorMessage.textContent = `Warning: The following ${misspelledWords.length + 1} words are potentially misspelled: ${allWordsButLast}, and ${lastWord}`
+        } else {
+            errorMessage.textContent = "";
+        }
+        document.body.append(errorMessage);
+        
     });
+
+
      
 }
