@@ -27,6 +27,16 @@ window.onload = function() {
     //Create a palceholder to display a message with all misspelled words
     const errorMessage = document.createElement("p");
 
+    //Style the message the show up when words are misspelled
+    errorMessage.style.color = "#b71c1c";
+    errorMessage.style.backgroundColor= "#ffebee";
+    errorMessage.style.fontWeight = "bold";
+    errorMessage.style.marginTop = "50px";
+    errorMessage.style.padding = "10px";
+    errorMessage.style.border = " 1px solid #ff0000";
+    errorMessage.style.borderRadius = "5px";
+    errorMessage.style.width = "fit-content";
+
     //Create event listener to check the presence of every word typed by end-user in the list after clicking the trigger button
     spellCheckBtn.addEventListener("click", () => {
         const typedSentence = textInput.value; 
@@ -36,11 +46,11 @@ window.onload = function() {
         //Create logic to create previous misspelling warnings, and display a new message based on the number of misspelled words
         errorMessage.textContent = "";
         if (misspelledWords.length === 1) {
-            errorMessage.textContent = `Warning: The following ${misspelledWords.length} word is potentially misspelled: ${misspelledWords.toString()}`;
+            errorMessage.textContent = `⚠️ Warning: The following ${misspelledWords.length} word is potentially misspelled: ${misspelledWords.toString()}`;
         } else if (misspelledWords.length > 1) {
             const lastWord = misspelledWords.pop();
             const allWordsButLast = misspelledWords.join(", ")
-            errorMessage.textContent = `Warning: The following ${misspelledWords.length + 1} words are potentially misspelled: ${allWordsButLast}, and ${lastWord}`
+            errorMessage.textContent = `⚠️ Warning: The following ${misspelledWords.length + 1} words are potentially misspelled: ${allWordsButLast} and ${lastWord}`
         } else {
             errorMessage.textContent = "";
         }
