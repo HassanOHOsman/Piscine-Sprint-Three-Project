@@ -40,7 +40,7 @@ window.onload = function() {
         } else if (misspelledWords.length > 1) {
             const lastWord = misspelledWords.pop();
             const allWordsButLast = misspelledWords.join(", ")
-            errorMessage.textContent = `Warning: The following ${misspelledWords.length + 1} words are potentially misspelled: ${allWordsButLast}, and ${lastWord}`
+            errorMessage.textContent = `Warning: The following ${misspelledWords.length + 1} words are potentially misspelled: ${allWordsButLast} and ${lastWord}`
         } else {
             errorMessage.textContent = "";
         }
