@@ -30,7 +30,6 @@ window.onload = function() {
         const typedSentence = textInput.value; 
         const arrayOfWords = typedSentence.split(" ");
         const misspelledWords = wordsChecker(arrayOfWords);
-
     });
      
 }

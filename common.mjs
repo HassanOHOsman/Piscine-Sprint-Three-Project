@@ -8,8 +8,7 @@ export function wordsChecker(array) {
     for (let item of array) {
         if (!words.includes(item)) {
             misspelledWords.push(item);
-        }
-        
+        }    
     } 
     return misspelledWords; 
 }
