@@ -59,6 +59,14 @@ window.onload = function() {
             errorMessage.textContent = "";
             errorMessage.style.display = "none";
         }
+
+        //Wrap every misspelled word inside a span element
+        misspelledWords.forEach((item) => {
+            const clickableWord = document.createElement("span");
+            clickableWord.textContent. item;
+            clickableWord.style.color = "red";
+            clickableWord.style.cursor = "pointer";
+        })
         
         
     });
