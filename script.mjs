@@ -49,7 +49,8 @@ window.onload = function() {
         //Create variable to store the typed text without hyphen in between 2 words
         let hyphenFreeWords = punctuationFreeText.replace(/[-]/g, " ");
 
-        const arrayOfWords = hyphenFreeWords.split(" ");
+        //Covert string into array while removing all white spaces
+        const arrayOfWords = hyphenFreeWords.split(" ").filter( word => word.trim() !== "");
         const misspelledWords = wordsChecker(arrayOfWords);
 
 
