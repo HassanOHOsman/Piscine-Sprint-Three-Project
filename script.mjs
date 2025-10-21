@@ -46,8 +46,13 @@ window.onload = function() {
         //Create a variable to store the typed text without punctuations
         const punctuationFreeText = typedSentence.replace(/[.,!?;:“”"(){}]/g, "");
 
-        const arrayOfWords = punctuationFreeText.split(" ");
+        //Create variable to store the typed text without hyphen in between 2 words
+        let hyphenFreeWords = punctuationFreeText.replace(/[-]/g, " ");
+
+        //Covert string into array while removing all white spaces
+        const arrayOfWords = hyphenFreeWords.split(" ").filter( word => word.trim() !== "");
         const misspelledWords = wordsChecker(arrayOfWords);
+
 
         //Create logic to create previous misspelling warnings, and display a new message based on the number of misspelled words
         errorMessage.textContent = "";
