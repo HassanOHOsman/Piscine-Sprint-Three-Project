@@ -41,7 +41,7 @@ window.onload = function() {
 
     //Create event listener to check the presence of every word typed by end-user in the list after clicking the trigger button
     spellCheckBtn.addEventListener("click", () => {
-        const typedSentence = textInput.value; 
+        let typedSentence = textInput.value; 
         const arrayOfWords = typedSentence.split(" ");
         const misspelledWords = wordsChecker(arrayOfWords);
 
@@ -76,12 +76,18 @@ window.onload = function() {
                 clickableWord.style.cursor = "default";
                 clickableWord.style.textDecoration = "line-through";
                 
-            })
-            
-        })
-        
-        
+            });    
+        })   
     });
+
+    //Make warning message clears when end-user changes text in the input
+    textInput.addEventListener("input", () => {
+        errorMessage.textContent = "";
+        errorMessage.style.display = "none";   
+    });
+
+            
+            
 
 
      
