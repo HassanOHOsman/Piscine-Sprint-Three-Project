@@ -44,7 +44,7 @@ window.onload = function() {
         let typedSentence = textInput.value; 
 
         //Create a variable to store the typed text without punctuations
-        const punctuationFreeText = typedSentence.replace(/[.,!?;:]/g, "");
+        const punctuationFreeText = typedSentence.replace(/[.,!?;:“”"(){}]/g, "");
 
         const arrayOfWords = punctuationFreeText.split(" ");
         const misspelledWords = wordsChecker(arrayOfWords);
