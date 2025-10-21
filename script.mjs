@@ -51,7 +51,14 @@ window.onload = function() {
 
         //Covert string into array while removing all white spaces
         const arrayOfWords = hyphenFreeWords.split(" ").filter( word => word.trim() !== "");
-        const misspelledWords = wordsChecker(arrayOfWords);
+
+        //Implement logic to avoid getting warning message when words start with capital letters
+        const capitalisedInitials = /^[A-Z][a-z]*$/;
+        const lowercaseArray = arrayOfWords.filter((item) => {
+            return !capitalisedInitials.test(item);
+        })
+
+        const misspelledWords = wordsChecker(lowercaseArray);
 
 
         //Create logic to create previous misspelling warnings, and display a new message based on the number of misspelled words
