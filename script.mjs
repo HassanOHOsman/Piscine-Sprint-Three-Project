@@ -61,16 +61,17 @@ window.onload = function() {
         //Wrap every misspelled word inside a span element
         misspelledWords.forEach((item) => {
             const clickableWord = document.createElement("span");
-            errorMessage.append(clickableWord);
             clickableWord.textContent = item;
             clickableWord.style.color = "red";
             clickableWord.style.cursor = "pointer";
+            clickableWord.style.marginRight = "10px";
 
             //Add event listner to add misspelled words to dictionary when clicked on
             clickableWord.addEventListener("click", () => {
                 words.push(item);
                 
             })
+            errorMessage.append(clickableWord);
         })
         
         
