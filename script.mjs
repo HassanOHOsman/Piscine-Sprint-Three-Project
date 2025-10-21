@@ -42,7 +42,11 @@ window.onload = function() {
     //Create event listener to check the presence of every word typed by end-user in the list after clicking the trigger button
     spellCheckBtn.addEventListener("click", () => {
         let typedSentence = textInput.value; 
-        const arrayOfWords = typedSentence.split(" ");
+
+        //Create a variable to store the typed text without punctuations
+        const punctuationFreeText = typedSentence.replace(/[.,!?;:]/g, "");
+
+        const arrayOfWords = punctuationFreeText.split(" ");
         const misspelledWords = wordsChecker(arrayOfWords);
 
         //Create logic to create previous misspelling warnings, and display a new message based on the number of misspelled words
