@@ -49,12 +49,10 @@ window.onload = function() {
         errorMessage.textContent = "";
         if (misspelledWords.length === 1) {
             errorMessage.style.display = "block";
-            errorMessage.innerHTML = `⚠️ Warning: The following ${misspelledWords.length} word is potentially misspelled: ${misspelledWords.toString()}`;
+            errorMessage.innerHTML = "⚠️ Warning: The following word is potentially misspelled. Click on it if you think it is correct: ";
         } else if (misspelledWords.length > 1) {
             errorMessage.style.display = "block";
-            const lastWord = misspelledWords.pop();
-            const allWordsButLast = misspelledWords.join(", ")
-            errorMessage.innerHTML = `⚠️ Warning: The following ${misspelledWords.length + 1} words are potentially misspelled: ${allWordsButLast} and ${lastWord}`
+            errorMessage.innerHTML = "⚠️ Warning: The following words are potentially misspelled. Click on any word you think is correct: ";
         } else {
             errorMessage.textContent = "";
             errorMessage.style.display = "none";
