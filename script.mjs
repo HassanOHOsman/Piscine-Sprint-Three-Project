@@ -26,6 +26,8 @@ window.onload = function() {
 
     //Create a palceholder to display a message with all misspelled words
     const errorMessage = document.createElement("p");
+    document.body.append(errorMessage);
+    errorMessage.style.display = "none";
 
     //Style the message the show up when words are misspelled
     errorMessage.style.color = "#b71c1c";
@@ -46,15 +48,38 @@ window.onload = function() {
         //Create logic to create previous misspelling warnings, and display a new message based on the number of misspelled words
         errorMessage.textContent = "";
         if (misspelledWords.length === 1) {
-            errorMessage.textContent = `⚠️ Warning: The following ${misspelledWords.length} word is potentially misspelled: ${misspelledWords.toString()}`;
+            errorMessage.style.display = "block";
+            errorMessage.innerHTML = "⚠️ Warning: The following word is potentially misspelled. Click on it if you think it is correct: ";
         } else if (misspelledWords.length > 1) {
-            const lastWord = misspelledWords.pop();
-            const allWordsButLast = misspelledWords.join(", ")
-            errorMessage.textContent = `⚠️ Warning: The following ${misspelledWords.length + 1} words are potentially misspelled: ${allWordsButLast} and ${lastWord}`
+            errorMessage.style.display = "block";
+            errorMessage.innerHTML = "⚠️ Warning: The following words are potentially misspelled. Click on any word you think is correct: ";
         } else {
             errorMessage.textContent = "";
+            errorMessage.style.display = "none";
         }
-        document.body.append(errorMessage);
+
+        //Wrap every misspelled word inside a span element
+        misspelledWords.forEach((item) => {
+            const clickableWord = document.createElement("span");
+            errorMessage.append(clickableWord);
+            clickableWord.textContent = item;
+            clickableWord.style.color = "red";
+            clickableWord.style.cursor = "pointer";
+            clickableWord.style.marginRight = "10px";
+
+            //Add event listner to add misspelled words to dictionary when clicked on
+            clickableWord.addEventListener("click", () => {
+                words.push(item);
+
+                //Add visual effects on misspelled words when clicked on
+                clickableWord.style.opacity = "0.5"; 
+                clickableWord.style.cursor = "default";
+                clickableWord.style.textDecoration = "line-through";
+                
+            })
+            
+        })
+        
         
     });
 
