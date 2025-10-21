@@ -69,6 +69,11 @@ window.onload = function() {
             //Add event listner to add misspelled words to dictionary when clicked on
             clickableWord.addEventListener("click", () => {
                 words.push(item);
+
+                //Add visual effects on misspelled words when clicked on
+                clickableWord.style.opacity = "0.5"; 
+                clickableWord.style.cursor = "default";
+                clickableWord.style.textDecoration = "line-through";
                 
             })
             errorMessage.append(clickableWord);
