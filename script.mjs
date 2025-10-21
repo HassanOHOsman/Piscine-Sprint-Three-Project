@@ -49,12 +49,12 @@ window.onload = function() {
         errorMessage.textContent = "";
         if (misspelledWords.length === 1) {
             errorMessage.style.display = "block";
-            errorMessage.textContent = `⚠️ Warning: The following ${misspelledWords.length} word is potentially misspelled: ${misspelledWords.toString()}`;
+            errorMessage.innerHTML = `⚠️ Warning: The following ${misspelledWords.length} word is potentially misspelled: ${misspelledWords.toString()}`;
         } else if (misspelledWords.length > 1) {
             errorMessage.style.display = "block";
             const lastWord = misspelledWords.pop();
             const allWordsButLast = misspelledWords.join(", ")
-            errorMessage.textContent = `⚠️ Warning: The following ${misspelledWords.length + 1} words are potentially misspelled: ${allWordsButLast} and ${lastWord}`
+            errorMessage.innerHTML = `⚠️ Warning: The following ${misspelledWords.length + 1} words are potentially misspelled: ${allWordsButLast} and ${lastWord}`
         } else {
             errorMessage.textContent = "";
             errorMessage.style.display = "none";
@@ -63,9 +63,16 @@ window.onload = function() {
         //Wrap every misspelled word inside a span element
         misspelledWords.forEach((item) => {
             const clickableWord = document.createElement("span");
-            clickableWord.textContent. item;
+            errorMessage.append(clickableWord);
+            clickableWord.textContent = item;
             clickableWord.style.color = "red";
             clickableWord.style.cursor = "pointer";
+
+            //Add event listner to add misspelled words to dictionary when clicked on
+            clickableWord.addEventListener("click", () => {
+                words.push(item);
+                
+            })
         })
         
         
