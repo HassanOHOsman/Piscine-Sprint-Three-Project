@@ -61,6 +61,7 @@ window.onload = function() {
         //Wrap every misspelled word inside a span element
         misspelledWords.forEach((item) => {
             const clickableWord = document.createElement("span");
+            errorMessage.append(clickableWord);
             clickableWord.textContent = item;
             clickableWord.style.color = "red";
             clickableWord.style.cursor = "pointer";
@@ -76,7 +77,7 @@ window.onload = function() {
                 clickableWord.style.textDecoration = "line-through";
                 
             })
-            errorMessage.append(clickableWord);
+            
         })
         
         
