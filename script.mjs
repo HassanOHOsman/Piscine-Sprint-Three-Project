@@ -79,7 +79,7 @@ window.onload = function() {
             const clickableWord = document.createElement("span");
             errorMessage.append(clickableWord);
             clickableWord.textContent = item;
-            clickableWord.style.color = "red";
+            clickableWord.style.color = "#8B0000";
             clickableWord.style.cursor = "pointer";
             clickableWord.style.marginRight = "10px";
 
