@@ -22,6 +22,10 @@ test("Return an empty array since all words exist in the dictionary", () => {
   assert.deepStrictEqual(wordsChecker(["blue", "green", "white", "brown", "black"]), []);
 });
 
+test("Return ['bloo', 'whyte', 'brawn'] since they are misspelled words", () => {
+  assert.deepStrictEqual(wordsChecker(["bloo", "green", "whyte", "brawn", "black"]), ["bloo", "whyte", "brawn"]);
+});
+
 
 
 
