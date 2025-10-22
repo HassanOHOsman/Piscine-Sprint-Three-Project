@@ -18,6 +18,10 @@ test("Return ['soil', 'compost'] only since they don't exist in the dictionary "
 });
 
 
+test("Return an empty array since all words exist in the dictionary", () => {
+  assert.deepStrictEqual(wordsChecker(["blue", "green", "white", "brown", "black"]), []);
+});
+
 
 
 
