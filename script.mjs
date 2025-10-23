@@ -43,7 +43,7 @@ window.onload = function() {
         let typedSentence = textInput.value; 
 
         //Create a variable to store the typed text without punctuations
-        const punctuationFreeText = typedSentence.replace(/[.,!?;:“”"(){}]/g, "");
+        const punctuationFreeText = typedSentence.replace(/[,.?!":;]/g, "");
 
         //Create variable to store the typed text without hyphen in between 2 words
         let hyphenFreeWords = punctuationFreeText.replace(/[-]/g, " ");
